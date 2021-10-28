@@ -1,4 +1,5 @@
 {
+  "name": "briefs-monorepo",
   "private": true,
   "workspaces": [
     "backend",
