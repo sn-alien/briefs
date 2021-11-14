@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "my-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,19 +9,25 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.6.0",
-    "@emotion/styled": "^11.6.0",
-    "@mui/material": "^5.1.0",
-    "next": "12.0.1",
+    "@mui/icons-material": "^5.0.0-rc.1",
+    "@mui/material": "^5.0.0-rc.1",
+    "@mui/styled-engine-sc": "^5.0.0-rc.1",
+    "next": "11.1.2",
+    "next-transpile-modules": "^8.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-hook-form": "^7.19.5"
+    "styled-components": "^5.3.1"
   },
   "devDependencies": {
-    "@types/node": "16.11.6",
-    "@types/react": "17.0.33",
+    "@types/react": "17.0.24",
+    "@types/styled-components": "^5.1.14",
+    "@typescript-eslint/eslint-plugin": "^4.31.2",
+    "@typescript-eslint/parser": "^4.31.2",
+    "babel-plugin-styled-components": "^1.13.2",
     "eslint": "7.32.0",
-    "eslint-config-next": "12.0.1",
-    "typescript": "4.4.4"
+    "eslint-config-next": "11.1.2",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.4.1",
+    "typescript": "4.4.3"
   }
 }

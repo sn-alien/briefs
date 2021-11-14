@@ -1,31 +1,28 @@
-import "../styles/globals.css";
+import * as React from 'react';
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
+import type { AppProps } from 'next/app';
+import Head from 'next/head';
+import theme from '../../styles/theme';
 
-import * as React from "react";
-import Head from "next/head";
-import { AppProps } from "next/app";
-import { ThemeProvider } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-import { CacheProvider, EmotionCache } from "@emotion/react";
-import theme from "../styles/theme";
-import createEmotionCache from "../styles/createEmotionCache";
-
-const clientSideEmotionCache = createEmotionCache();
-
-interface MyAppProps extends AppProps {
-  emotionCache?: EmotionCache;
-}
-export default function MyApp(props: MyAppProps) {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+const App = (props: AppProps) => {
+  const { Component, pageProps } = props;
   return (
-    <CacheProvider value={emotionCache}>
+    <React.Fragment>
       <Head>
-        <title>Briefs</title>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
+        <title>Next App</title>
+        <link href="/favicon.ico" rel="icon" />
+        <meta
+          content="minimum-scale=1, initial-scale=1, width=device-width"
+          name="viewport"
+        />
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Component {...pageProps} />
       </ThemeProvider>
-    </CacheProvider>
+    </React.Fragment>
   );
-}
+};
+
+export default App;
