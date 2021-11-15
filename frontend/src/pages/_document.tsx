@@ -2,7 +2,7 @@ import React from 'react';
 // eslint-disable-next-line @next/next/no-document-import-in-page
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-import theme from '../../styles/theme';
+import theme from '../styles/theme';
 
 // https://material-ui.com/styles/advanced/#next-js
 export default class MyDocument extends Document {
