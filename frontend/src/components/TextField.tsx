@@ -12,3 +12,5 @@ const BasicTextField = ({ labelName }: Props): JSX.Element => {
     </div>
   );
 };
+
+export default BasicTextField;
