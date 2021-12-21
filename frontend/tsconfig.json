@@ -24,15 +24,8 @@
       "@components/*": ["./src/components/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@pages/*": ["./src/pages/*"]
-    },
-
-    "include": [
-      "next-env.d.ts",
-      "**/*.ts",
-      "**/*.tsx",
-      "src/pages/_app.jsx",
-      "src/pages/_document.jsx"
-    ],
-    "exclude": ["node_modules"]
-  }
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }
