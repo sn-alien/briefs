@@ -13,10 +13,26 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+
+    "baseUrl": ".",
     "paths": {
-      "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"] // this mapping is relative to "baseUrl"
-    }
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+      "@helpers/*": ["./src/helpers/*"],
+      "@services/*": ["./src/services/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@api/*": ["./src/api/*"],
+      "@components/*": ["./src/components/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@pages/*": ["./src/pages/*"]
+    },
+
+    "include": [
+      "next-env.d.ts",
+      "**/*.ts",
+      "**/*.tsx",
+      "src/pages/_app.jsx",
+      "src/pages/_document.jsx"
+    ],
+    "exclude": ["node_modules"]
+  }
 }

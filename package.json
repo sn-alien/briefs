@@ -1,0 +1,13 @@
+{
+  "name": "briefs",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "backend",
+      "frontend"
+    ]
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
