@@ -1,4 +1,5 @@
 {
+  "project": "frontend/tsconfig.json",
   "env": {
     "browser": true,
     "es2021": true,
@@ -12,16 +13,22 @@
       "jsx": true
     }
   },
-  "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended", "prettier"], // make sure prettier is last
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ], // make sure prettier is last
   "settings": {
     "react": {
       "version": "detect"
     }
   },
-  "overrides": [{
-    "files": ["*.ts", "*.tsx"],
-    "parserOptions": {
-      "project": ["./tsconfig.json"]
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "parserOptions": {
+        "project": ["./tsconfig.json"]
+      }
     }
-  }]
+  ]
 }
