@@ -4,8 +4,13 @@ import Head from 'next/head';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider } from '@emotion/react';
-import theme from '@styles/theme';
+import muiTheme from '@styles/muiTheme';
 import createEmotionCache from '@styles/createEmotionCache';
+import Wrapper from '@components/layout/Wrapper';
+import Header from '@components/header/Header';
+import Footer from '@components/Footer';
+import BodyWrapper from '@components/layout/BodyWrapper';
+import GlobalStyles from '@styles/GlobalStyle';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -19,10 +24,17 @@ export default function MyApp(props) {
         <title>My page</title>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
-      <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <ThemeProvider theme={muiTheme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <Component {...pageProps} />
+        <Header />
+        <Wrapper>
+          <BodyWrapper>
+            <Component {...pageProps} />
+          </BodyWrapper>
+        </Wrapper>
+        <Footer />
       </ThemeProvider>
     </CacheProvider>
   );

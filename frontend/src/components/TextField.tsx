@@ -1,11 +1,16 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
 
-export default function BasicTextField() {
+interface Props {
+  labelName: string;
+}
+
+const BasicTextField = ({ labelName }: Props): JSX.Element => {
   return (
     <div>
-      <TextField required id="outlined-required" label="Name" />
-      <TextField id="outlined-basic" label="Surname" />
+      <TextField required id="outlined-required" label={labelName} />
     </div>
   );
-}
+};
+
+export default BasicTextField;
