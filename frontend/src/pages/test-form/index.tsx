@@ -21,7 +21,7 @@ export default function App() {
 
   return (
     <Form methods={methods} id="test-form" onSubmit={formSubmit}>
-      <MuiTextField name="fullName" labelName="Full Name" />
+      <MuiTextField name="fullName" labelName="Full Name" optional />
       <button type="submit">Submit</button>
     </Form>
   );

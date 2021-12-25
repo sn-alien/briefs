@@ -1,6 +1,7 @@
 import { TextField } from '@mui/material';
 import { Typography } from '@mui/material';
 import { Controller, useFormContext } from 'react-hook-form';
+import { Label, Optional } from './Styles';
 
 interface Props {
   name: string;
@@ -26,10 +27,10 @@ const MuiTextField = ({
 
   return (
     <>
-      <label htmlFor={name}>
-        {labelName}
-        {optional && <span>optional</span>}
-      </label>
+      <Label htmlFor={name}>
+        <span>{labelName}</span>
+        {optional && <Optional>optional</Optional>}
+      </Label>
 
       <Controller
         name={name}
@@ -37,7 +38,6 @@ const MuiTextField = ({
         defaultValue={defaultValue}
         render={({ field }) => (
           <TextField
-            key={name}
             onChange={field.onChange}
             value={field.value}
             id={name}
