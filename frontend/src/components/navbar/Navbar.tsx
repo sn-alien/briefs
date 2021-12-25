@@ -10,7 +10,7 @@ const Navbar = (): JSX.Element => {
     <NavbarBg>
       <Wrapper>
         <InnerNavbar>
-          <Typography variant="h6">Logo ｡◕‿◕｡</Typography>
+          <Typography variant="h6">Logo ( ´(00)ˋ )</Typography>
         </InnerNavbar>
       </Wrapper>
     </NavbarBg>
