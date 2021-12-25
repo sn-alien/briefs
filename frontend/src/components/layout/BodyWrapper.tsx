@@ -17,5 +17,6 @@ const BodyWrapper = ({ children }: Props): JSX.Element => {
 export default BodyWrapper;
 
 const ContainerStyled = styled(Container)`
-  height: calc(100% - 4.5rem);
+  padding: 1rem 0;
+  /* height: calc(100% - 4.5rem); */
 `;
