@@ -1,9 +1,9 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import { MuiTextField, MuiSelect } from '@components/inputs/';
+import { TextField, Select } from '@components/inputs/';
 import Form from '@components/Form';
-
+import Button from '@components/buttons/Button';
 type Inputs = {
   fullName: string;
   country: string;
@@ -24,13 +24,14 @@ export default function TestForm() {
   return (
     <>
       <Form methods={methods} id="test-form" onSubmit={formSubmit}>
-        <MuiTextField name="fullName" labelName="Full Name" />
-        <button form="test-form" type="submit">
-          Submit
-        </button>
-        <MuiSelect name="country" labelName="Country" options={options1} />
-        <MuiSelect name="age" labelName="Age" options={options2} />
+        <TextField name="fullName" labelName="Full Name" />
+        <Select name="country" labelName="Country" options={options1} />
+        <Select name="age" labelName="Age" options={options2} />
       </Form>
+      <button form="test-form" type="submit">
+        Submit
+      </button>
+      <Button />
     </>
   );
 }

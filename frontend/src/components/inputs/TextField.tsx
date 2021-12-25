@@ -1,4 +1,4 @@
-import { TextField } from '@mui/material';
+import { TextField as MuiTextField } from '@mui/material';
 import { Typography } from '@mui/material';
 import { Controller, useFormContext } from 'react-hook-form';
 import { Label, Optional } from './Styles';
@@ -12,7 +12,7 @@ interface Props {
   autoComplete?: string;
 }
 
-const MuiTextField = ({
+const TextField = ({
   name,
   labelName,
   placeholder,
@@ -37,7 +37,7 @@ const MuiTextField = ({
         control={control}
         defaultValue={defaultValue}
         render={({ field }) => (
-          <TextField
+          <MuiTextField
             onChange={field.onChange}
             value={field.value}
             id={name}
@@ -49,4 +49,4 @@ const MuiTextField = ({
   );
 };
 
-export default MuiTextField;
+export default TextField;

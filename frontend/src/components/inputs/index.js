@@ -1,4 +1,4 @@
-import MuiTextField from './MuiTextField';
-import MuiSelect from './MuiSelect';
+import TextField from './TextField';
+import Select from './Select';
 
-export { MuiTextField, MuiSelect };
+export { TextField, Select };

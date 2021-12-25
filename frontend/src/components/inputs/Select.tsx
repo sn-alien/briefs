@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { Select as MuiSelect } from '@mui/material';
 import { Label, Optional } from './Styles';
 import MenuItem from '@mui/material/MenuItem';
 import { Controller, useFormContext } from 'react-hook-form';
@@ -12,7 +12,7 @@ interface Props {
   options: { value: string; label: string }[];
 }
 
-const MuiSelect = ({
+const Select = ({
   name,
   defaultValue,
   labelName,
@@ -36,7 +36,7 @@ const MuiSelect = ({
         control={control}
         defaultValue={defaultValue}
         render={({ field }) => (
-          <Select
+          <MuiSelect
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={field.value}
@@ -50,10 +50,10 @@ const MuiSelect = ({
                 </MenuItem>
               );
             })}
-          </Select>
+          </MuiSelect>
         )}
       ></Controller>
     </>
   );
 };
-export default MuiSelect;
+export default Select;
