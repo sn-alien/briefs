@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { FormProvider } from 'react-hook-form';
 import { styled } from '@mui/material/styles';
 
@@ -7,11 +6,12 @@ interface Props {
   id: string;
   onSubmit?: any;
   methods: any;
+  children: JSX.Element | JSX.Element[];
 }
-const Form: React.FC<Props> = ({ id, children, methods, ...props }) => {
+const Form = ({ id, children, methods, ...props }: Props): JSX.Element => {
   return (
     <FormProvider {...methods}>
-      <FormStyled id={id} className="super-form" noValidate {...props}>
+      <FormStyled id={id} noValidate {...props}>
         {children}
       </FormStyled>
     </FormProvider>
