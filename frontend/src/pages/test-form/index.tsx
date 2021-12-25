@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import * as yup from 'yup';
+import { MuiTextField } from '@components/inputs/';
 
 type Inputs = {
   example: string;
@@ -25,6 +26,7 @@ export default function App() {
       {errors.exampleRequired && <span>This field is required</span>}
 
       <input type="submit" />
+      <MuiTextField></MuiTextField>
     </form>
   );
 }
