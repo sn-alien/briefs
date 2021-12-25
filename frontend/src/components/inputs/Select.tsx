@@ -39,10 +39,8 @@ const Select = ({
         defaultValue={defaultValue}
         render={({ field }) => (
           <MuiSelect
-            labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={field.value}
-            label="Country"
             onChange={field.onChange}
           >
             {options.map((option, index) => {
