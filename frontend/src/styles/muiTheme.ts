@@ -1,19 +1,29 @@
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
-import { red } from '@mui/material/colors';
+import { red, grey } from '@mui/material/colors';
+
+declare module '@mui/material/styles/createTheme' {
+  interface ThemeOptions {
+    themeName?: string;
+  }
+}
+const themeName = 'Light';
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#556cd6',
+      main: '#46D5B3',
+      light: '#98E8D4',
+      dark: '#31D0AA',
     },
     secondary: {
-      main: '#19857b',
-    },
-    error: {
-      main: red.A400,
+      main: '#EF5DA8',
+      light: '#F17BB8',
+      dark: '#ED4B9E',
     },
   },
+  themeName,
 });
+
 const muiTheme = responsiveFontSizes(theme);
 
 export default muiTheme;

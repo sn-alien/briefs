@@ -8,7 +8,7 @@ type Inputs = {
   fullName: string;
 };
 
-export default function App() {
+export default function TestForm() {
   const methods = useForm<Inputs>({
     defaultValues: { fullName: 'Sofia Mikhaleva' },
   });
@@ -22,6 +22,8 @@ export default function App() {
   return (
     <Form methods={methods} id="test-form" onSubmit={formSubmit}>
       <MuiTextField name="fullName" labelName="Full Name" optional />
+      <MuiTextField name="age" labelName="Full Name" optional />
+
       <button type="submit">Submit</button>
     </Form>
   );
