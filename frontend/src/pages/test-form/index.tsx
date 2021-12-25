@@ -1,32 +1,28 @@
 import React from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { MuiTextField } from '@components/inputs/';
+import Form from '@components/Form';
 
 type Inputs = {
-  example: string;
-  exampleRequired: string;
+  fullName: string;
 };
 
 export default function App() {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<Inputs>();
+  const methods = useForm<Inputs>({
+    defaultValues: { fullName: 'Sofia Mikhaleva' },
+  });
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const { handleSubmit, watch } = methods;
+
+  const formSubmit = handleSubmit((data) => {
+    console.log(data);
+  });
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input defaultValue="test" {...register('example')} />
-
-      <input {...register('exampleRequired', { required: true })} />
-      {errors.exampleRequired && <span>This field is required</span>}
-
-      <input type="submit" />
-      <MuiTextField></MuiTextField>
-    </form>
+    <Form methods={methods} id="test-form" onSubmit={formSubmit}>
+      <MuiTextField name="fullName" labelName="Full Name" />
+      <button type="submit">Submit</button>
+    </Form>
   );
 }
