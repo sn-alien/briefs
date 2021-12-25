@@ -1,18 +1,20 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import Head from 'next/head';
-import { ThemeProvider } from '@mui/material/styles';
-import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
+import * as React from "react";
 
-import CssBaseline from '@mui/material/CssBaseline';
-import { CacheProvider } from '@emotion/react';
-import muiTheme from '@styles/muiTheme';
-import createEmotionCache from '@styles/createEmotionCache';
-import Wrapper from '@components/layout/Wrapper';
-import Navbar from '@components/navbar/Navbar';
-import Footer from '@components/Footer';
-import BodyWrapper from '@components/layout/BodyWrapper';
-import GlobalStyles from '@styles/GlobalStyle';
+import { ThemeProvider as EmotionThemeProvider } from "@emotion/react";
+import { CacheProvider } from "@emotion/react";
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from "@mui/material/styles";
+import Head from "next/head";
+import PropTypes from "prop-types";
+
+import GlobalStyles from "@styles/GlobalStyle";
+import createEmotionCache from "@styles/createEmotionCache";
+import muiTheme from "@styles/muiTheme";
+
+import Footer from "@components/Footer";
+import BodyWrapper from "@components/layout/BodyWrapper";
+import Wrapper from "@components/layout/Wrapper";
+import Navbar from "@components/navbar/Navbar";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();

@@ -1,6 +1,7 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Container from '@mui/material/Container';
+import * as React from "react";
+
+import Container from "@mui/material/Container";
+import { styled } from "@mui/material/styles";
 
 interface Props {
   children: any;

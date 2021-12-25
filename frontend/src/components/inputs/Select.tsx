@@ -1,8 +1,10 @@
-import * as React from 'react';
-import { Select as MuiSelect } from '@mui/material';
-import { Label, Optional } from './Styles';
-import MenuItem from '@mui/material/MenuItem';
-import { Controller, useFormContext } from 'react-hook-form';
+import * as React from "react";
+
+import { Select as MuiSelect } from "@mui/material";
+import MenuItem from "@mui/material/MenuItem";
+import { Controller, useFormContext } from "react-hook-form";
+
+import { Label, Optional } from "./Styles";
 
 interface Props {
   name: string;

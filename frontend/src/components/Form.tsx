@@ -1,6 +1,7 @@
-import React from 'react';
-import { FormProvider } from 'react-hook-form';
-import { styled } from '@mui/material/styles';
+import React from "react";
+
+import { styled } from "@mui/material/styles";
+import { FormProvider } from "react-hook-form";
 
 interface Props {
   id: string;
@@ -18,7 +19,7 @@ const Form = ({ id, children, methods, ...props }: Props): JSX.Element => {
   );
 };
 
-const FormStyled = styled('form')`
+const FormStyled = styled("form")`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

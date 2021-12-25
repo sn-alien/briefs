@@ -1,7 +1,9 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Wrapper from '@components/layout/Wrapper';
-import { Typography } from '@mui/material';
+import * as React from "react";
+
+import { Typography } from "@mui/material";
+import { styled } from "@mui/material/styles";
+
+import Wrapper from "@components/layout/Wrapper";
 
 const Navbar = (): JSX.Element => {
   return (
@@ -15,11 +17,11 @@ const Navbar = (): JSX.Element => {
   );
 };
 
-const NavbarBg = styled('div')`
+const NavbarBg = styled("div")`
   height: 56px;
   border-bottom: 1px solid ${({ theme }) => theme.palette.primary.main};
 `;
-const InnerNavbar = styled('div')`
+const InnerNavbar = styled("div")`
   display: flex;
   align-items: center;
   height: 100%;

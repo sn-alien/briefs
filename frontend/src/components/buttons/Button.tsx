@@ -1,4 +1,4 @@
-import { Button as MuiButton } from '@mui/material';
+import { Button as MuiButton } from "@mui/material";
 
 const Button = () => {
   return <MuiButton>Test</MuiButton>;

@@ -1,7 +1,8 @@
-import { TextField as MuiTextField } from '@mui/material';
-import { Typography } from '@mui/material';
-import { Controller, useFormContext } from 'react-hook-form';
-import { Label, Optional } from './Styles';
+import { TextField as MuiTextField } from "@mui/material";
+import { Typography } from "@mui/material";
+import { Controller, useFormContext } from "react-hook-form";
+
+import { Label, Optional } from "./Styles";
 
 interface Props {
   name: string;
