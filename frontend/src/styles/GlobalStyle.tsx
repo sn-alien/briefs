@@ -21,7 +21,7 @@ const GlobalStyles = (): JSX.Element => {
           height: 100%;
         }
       `}
-    ></Global>
+    />
   );
 };
 

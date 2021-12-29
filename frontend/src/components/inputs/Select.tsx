@@ -52,7 +52,7 @@ const Select = ({
             })}
           </MuiSelect>
         )}
-      ></Controller>
+      />
     </>
   );
 };

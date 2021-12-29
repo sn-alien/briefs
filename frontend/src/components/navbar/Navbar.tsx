@@ -1,31 +1,159 @@
-import * as React from "react";
+import React, { useState } from "react";
 
-import { Typography } from "@mui/material";
+import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
+import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
+import SettingsIcon from "@mui/icons-material/Settings";
+import {
+  IconButton,
+  LinearProgress,
+  ListItemIcon,
+  Menu,
+  MenuItem,
+  Typography,
+} from "@mui/material";
 import { styled } from "@mui/material/styles";
+import Image from "next/image";
+import Link from "next/link";
 
+import useRouteLoader from "@hooks/useRouteLoader";
+
+import Tooltip from "@components/Tooltip";
 import Wrapper from "@components/layout/Wrapper";
 
 const Navbar = (): JSX.Element => {
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const { loading } = useRouteLoader();
+
   return (
-    <NavbarBg>
-      <Wrapper>
-        <InnerNavbar>
-          <Typography variant="h6">Logo ( ´(00)ˋ )</Typography>
-        </InnerNavbar>
-      </Wrapper>
-    </NavbarBg>
+    <>
+      <NavbarBg>
+        <Wrapper>
+          <InnerNavbar>
+            <Link href={"/home"} passHref>
+              <Logo>
+                <Image src="/briefs.svg" height="44" width="90" />
+              </Logo>
+            </Link>
+
+            <LinksContainer>
+              <Link prefetch href={"/home"} passHref>
+                <StyledLinkText as="a" variant="body1">
+                  Home
+                </StyledLinkText>
+              </Link>
+              <Link prefetch href={"/test-form"} passHref>
+                <StyledLinkText as="a" variant="body1">
+                  Form
+                </StyledLinkText>
+              </Link>
+            </LinksContainer>
+            <UserContainer>
+              <Tooltip title="Account">
+                <IconButton onClick={handleOpenNavMenu}>
+                  <AccountCircleRoundedIcon />
+                </IconButton>
+              </Tooltip>
+              <MenuStyled
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+              >
+                <Link href={"/settings"}>
+                  <MenuItemStyled onClick={handleCloseNavMenu}>
+                    <ListItemIcon>
+                      <SettingsIcon fontSize="small" />
+                    </ListItemIcon>
+                    <Typography
+                      component="a"
+                      variant="body2"
+                      textAlign="center"
+                    >
+                      Settings
+                    </Typography>
+                  </MenuItemStyled>
+                </Link>
+                <MenuItemStyled onClick={handleCloseNavMenu}>
+                  <ListItemIcon>
+                    <LogoutRoundedIcon fontSize="small" />
+                  </ListItemIcon>
+
+                  <Typography variant="body2" textAlign="center">
+                    Logout
+                  </Typography>
+                </MenuItemStyled>
+              </MenuStyled>
+            </UserContainer>
+          </InnerNavbar>
+        </Wrapper>
+      </NavbarBg>
+      {loading && <LinearProgress />}
+    </>
   );
 };
 
 const NavbarBg = styled("div")`
   height: 56px;
-  border-bottom: 1px solid ${({ theme }) => theme.palette.primary.main};
+  /* border-bottom: 1px solid ${({ theme }) => theme.palette.primary.main}; */
+  border-bottom: 1px solid ${({ theme }) => theme.palette.divider};
 `;
 const InnerNavbar = styled("div")`
   display: flex;
   align-items: center;
   height: 100%;
   width: 100%;
+`;
+
+const Logo = styled("a")`
+  height: 100%;
+  display: flex;
+  align-items: center;
+`;
+
+const LinksContainer = styled("div")`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const StyledLinkText = styled(Typography)`
+  color: ${({ theme }) => theme.palette.text.primary};
+  text-decoration: none;
+  padding: 8px;
+  font-weight: ${({ theme }) => theme.typography.fontWeightBold};
+`;
+
+const UserContainer = styled("div")``;
+
+const MenuStyled = styled(Menu)`
+  .MuiMenu-list {
+    padding: 0;
+  }
+  .MuiMenu-paper {
+    border: 1px solid ${({ theme }) => theme.palette.divider};
+    box-shadow: none;
+  }
+`;
+
+const MenuItemStyled = styled(MenuItem)`
+  padding: 8px 14px;
 `;
 
 export default Navbar;
