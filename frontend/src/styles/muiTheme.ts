@@ -9,6 +9,13 @@ declare module "@mui/material/styles/createTheme" {
 const themeName = "Light";
 
 const theme = createTheme({
+  components: {
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+      },
+    },
+  },
   palette: {
     primary: {
       main: "#EF5DA8",
