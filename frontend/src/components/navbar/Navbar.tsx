@@ -1,7 +1,19 @@
-import * as React from "react";
+import React, { useState } from "react";
 
-import { Typography } from "@mui/material";
+import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
+import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
+import SettingsIcon from "@mui/icons-material/Settings";
+import {
+  IconButton,
+  LinearProgress,
+  ListItemIcon,
+  Menu,
+  MenuItem,
+  Typography,
+} from "@mui/material";
 import { styled } from "@mui/material/styles";
+import Image from "next/image";
+import Link from "next/link";
 
 import useRouteLoader from "@hooks/useRouteLoader";
 
@@ -10,6 +22,16 @@ import Button from "@components/buttons/Button";
 import Wrapper from "@components/layout/Wrapper";
 
 const Navbar = (): JSX.Element => {
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const { loading } = useRouteLoader();
+
   return (
     <>
       <NavbarBg>
@@ -91,7 +113,8 @@ const Navbar = (): JSX.Element => {
 
 const NavbarBg = styled("div")`
   height: 56px;
-  border-bottom: 1px solid ${({ theme }) => theme.palette.primary.main};
+  /* border-bottom: 1px solid ${({ theme }) => theme.palette.primary.main}; */
+  border-bottom: 1px solid ${({ theme }) => theme.palette.divider};
 `;
 const InnerNavbar = styled("div")`
   display: flex;

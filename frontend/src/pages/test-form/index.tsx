@@ -5,17 +5,21 @@ import * as yup from "yup";
 
 import Form from "@components/Form";
 import Button from "@components/buttons/Button";
-import { Select, TextField } from "@components/inputs/";
+import { Autocomplete, Select, TextField } from "@components/inputs/";
 
 type Inputs = {
   fullName: string;
   country: string;
-  age: string;
+  favouriteMovie: string;
 };
 
 export default function TestForm() {
   const methods = useForm<Inputs>({
-    defaultValues: { fullName: "Sofia Mikhaleva", country: "USA", age: "12" },
+    defaultValues: {
+      fullName: "Sofia Mikhaleva",
+      country: "USA",
+      favouriteMovie: "",
+    },
   });
 
   const { handleSubmit, watch } = methods;
@@ -29,12 +33,13 @@ export default function TestForm() {
       <Form methods={methods} id="test-form" onSubmit={formSubmit}>
         <TextField name="fullName" labelName="Full Name" />
         <Select name="country" labelName="Country" options={options1} />
-        <Select name="age" labelName="Age" options={options2} />
+        <Autocomplete
+          name="favouriteMovie"
+          labelName="Favourite Movie"
+          options={top100Films}
+        />
+        <Button form="test-form">Submit</Button>
       </Form>
-      <button form="test-form" type="submit">
-        Submit
-      </button>
-      <Button />
     </>
   );
 }
@@ -42,9 +47,13 @@ const options1 = [
   { value: "USA", label: "United States of Americanes" },
   { value: "MEX", label: "Mexico" },
 ];
-const options2 = [
-  { value: "12", label: "12 years old" },
-  { value: "14", label: "14 years old" },
-  { value: "16", label: "16 years old" },
-  { value: "18", label: "18 years old" },
+
+const top100Films = [
+  { label: "The Shawshank Redemption", id: 1 },
+  { label: "The Godfather", id: 2 },
+  { label: "The Godfather: Part II", id: 3 },
+  { label: "The Dark Knight", id: 4 },
+  { label: "12 Angry Men", id: 5 },
+  { label: "Schindler's List", id: 6 },
+  { label: "Pulp Fiction", id: 7 },
 ];
