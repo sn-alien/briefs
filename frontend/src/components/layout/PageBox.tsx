@@ -5,17 +5,18 @@ import { styled } from "@mui/material/styles";
 
 interface Props {
   children: any;
+  maxWidth?: "lg" | "md" | "sm" | "xl" | "xs" | false;
 }
 
-const BodyWrapper = ({ children }: Props): JSX.Element => {
+const PageBox = ({ children, maxWidth = false }: Props): JSX.Element => {
   return (
-    <ContainerStyled disableGutters maxWidth={false}>
+    <ContainerStyled disableGutters maxWidth={maxWidth}>
       {children}
     </ContainerStyled>
   );
 };
 
-export default BodyWrapper;
+export default PageBox;
 
 const ContainerStyled = styled(Container)`
   padding: 1rem 0;

@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
 
-import LinearProgress from "@mui/material/LinearProgress";
 import { useRouter } from "next/router";
 
 const DONE_DURATION = 250;

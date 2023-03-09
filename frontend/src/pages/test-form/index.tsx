@@ -5,7 +5,12 @@ import * as yup from "yup";
 
 import Form from "@components/Form";
 import Button from "@components/buttons/Button";
-import { Autocomplete, Select, TextField } from "@components/inputs/";
+import {
+  Autocomplete,
+  FileDropzone,
+  Select,
+  TextField,
+} from "@components/inputs/";
 
 type Inputs = {
   fullName: string;
@@ -38,6 +43,7 @@ export default function TestForm() {
           labelName="Favourite Movie"
           options={top100Films}
         />
+        <FileDropzone name="nudes" labelName="Nudes" />
         <Button form="test-form">Submit</Button>
       </Form>
     </>

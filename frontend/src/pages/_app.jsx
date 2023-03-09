@@ -6,14 +6,14 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import Head from "next/head";
 import PropTypes from "prop-types";
+import { AuthContextProvider } from "src/context/authContext";
 
 import GlobalStyles from "@styles/GlobalStyle";
 import createEmotionCache from "@styles/createEmotionCache";
 import muiTheme from "@styles/muiTheme";
 
 import Footer from "@components/Footer";
-import BodyWrapper from "@components/layout/BodyWrapper";
-import Wrapper from "@components/layout/Wrapper";
+import { Wrapper } from "@components/layout";
 import Navbar from "@components/navbar/Navbar";
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -30,14 +30,14 @@ export default function MyApp(props) {
       <GlobalStyles />
       <ThemeProvider theme={muiTheme}>
         <EmotionThemeProvider theme={muiTheme}>
-          <CssBaseline />
-          <Navbar />
-          <Wrapper>
-            <BodyWrapper>
+          <AuthContextProvider>
+            <CssBaseline />
+            <Navbar />
+            <Wrapper>
               <Component {...pageProps} />
-            </BodyWrapper>
-          </Wrapper>
-          <Footer />
+            </Wrapper>
+            <Footer />
+          </AuthContextProvider>
         </EmotionThemeProvider>
       </ThemeProvider>
     </CacheProvider>

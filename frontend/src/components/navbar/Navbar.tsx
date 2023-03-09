@@ -11,15 +11,16 @@ import {
   MenuItem,
   Typography,
 } from "@mui/material";
+import Container from "@mui/material/Container";
 import { styled } from "@mui/material/styles";
 import Image from "next/image";
 import Link from "next/link";
+import { useAuth } from "src/context/authContext";
 
 import useRouteLoader from "@hooks/useRouteLoader";
 
 import Tooltip from "@components/Tooltip";
 import Button from "@components/buttons/Button";
-import Wrapper from "@components/layout/Wrapper";
 
 const Navbar = (): JSX.Element => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -31,11 +32,11 @@ const Navbar = (): JSX.Element => {
     setAnchorElNav(event.currentTarget);
   };
   const { loading } = useRouteLoader();
-
+  const { currentUser, logout } = useAuth();
   return (
     <>
       <NavbarBg>
-        <Wrapper>
+        <InnerContainer maxWidth="lg">
           <InnerNavbar>
             <Link href={"/home"} passHref>
               <Logo>
@@ -44,65 +45,85 @@ const Navbar = (): JSX.Element => {
             </Link>
 
             <LinksContainer>
-              <Link prefetch href={"/home"} passHref>
+              <Link href={"/home"} passHref>
                 <StyledLinkText as="a" variant="body1">
                   Home
                 </StyledLinkText>
               </Link>
-              <Link prefetch href={"/test-form"} passHref>
+              <Link href={"/test-form"} passHref>
                 <StyledLinkText as="a" variant="body1">
                   Form
                 </StyledLinkText>
               </Link>
             </LinksContainer>
-            <UserContainer>
-              <Tooltip title="Account">
-                <IconButton onClick={handleOpenNavMenu}>
-                  <AccountCircleRoundedIcon />
-                </IconButton>
-              </Tooltip>
-              <MenuStyled
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "right",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
-              >
-                <Link href={"/settings"}>
+
+            {currentUser.isLoggedIn ? (
+              <UserContainer>
+                <Tooltip title="Account">
+                  <IconButton onClick={handleOpenNavMenu}>
+                    <AccountCircleRoundedIcon />
+                  </IconButton>
+                </Tooltip>
+                <MenuStyled
+                  id="menu-appbar"
+                  anchorEl={anchorElNav}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "right",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  open={Boolean(anchorElNav)}
+                  onClose={handleCloseNavMenu}
+                >
+                  <Link href={"/settings"}>
+                    <MenuItemStyled onClick={handleCloseNavMenu}>
+                      <ListItemIcon>
+                        <SettingsIcon fontSize="small" />
+                      </ListItemIcon>
+                      <Typography
+                        component="a"
+                        variant="body2"
+                        textAlign="center"
+                      >
+                        Settings
+                      </Typography>
+                    </MenuItemStyled>
+                  </Link>
                   <MenuItemStyled onClick={handleCloseNavMenu}>
-                    <ListItemIcon>
-                      <SettingsIcon fontSize="small" />
-                    </ListItemIcon>
-                    <Typography
-                      component="a"
-                      variant="body2"
-                      textAlign="center"
+                    <ListItemIcon
+                      onClick={() => {
+                        logout(() => null);
+                      }}
                     >
-                      Settings
+                      <LogoutRoundedIcon fontSize="small" />
+                    </ListItemIcon>
+
+                    <Typography variant="body2" textAlign="center">
+                      Logout
                     </Typography>
                   </MenuItemStyled>
+                </MenuStyled>
+              </UserContainer>
+            ) : (
+              <AuthContainer>
+                <Link href="/auth/login" passHref>
+                  <Button href="/auth/login" size="small" variant="text">
+                    Log in
+                  </Button>
                 </Link>
-                <MenuItemStyled onClick={handleCloseNavMenu}>
-                  <ListItemIcon>
-                    <LogoutRoundedIcon fontSize="small" />
-                  </ListItemIcon>
-
-                  <Typography variant="body2" textAlign="center">
-                    Logout
-                  </Typography>
-                </MenuItemStyled>
-              </MenuStyled>
-            </UserContainer>
+                <Link href="/auth/sign-up" passHref>
+                  <Button href="/auth/sign-up" size="small" variant="contained">
+                    Sign up
+                  </Button>
+                </Link>
+              </AuthContainer>
+            )}
           </InnerNavbar>
-        </Wrapper>
+        </InnerContainer>
       </NavbarBg>
       <LoaderWrap>
         {loading && <LinearProgress variant="indeterminate" />}
@@ -113,8 +134,13 @@ const Navbar = (): JSX.Element => {
 
 const NavbarBg = styled("div")`
   height: 56px;
-  /* border-bottom: 1px solid ${({ theme }) => theme.palette.primary.main}; */
   border-bottom: 1px solid ${({ theme }) => theme.palette.divider};
+  ${({ theme }) => theme.mixins.toolbar}
+`;
+
+const InnerContainer = styled(Container)`
+  min-height: 100%;
+  height: 100%;
 `;
 const InnerNavbar = styled("div")`
   display: flex;
@@ -144,10 +170,11 @@ const StyledLinkText = styled(Typography)`
 `;
 
 const UserContainer = styled("div")``;
+const AuthContainer = styled("div")``;
 
 const MenuStyled = styled(Menu)`
   .MuiMenu-list {
-    padding: 0;
+    /* padding: 0; */
   }
   .MuiMenu-paper {
     border: 1px solid ${({ theme }) => theme.palette.divider};
