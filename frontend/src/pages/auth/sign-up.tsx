@@ -5,11 +5,10 @@ import { Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { NextPage } from "next";
 import { useForm } from "react-hook-form";
-import { useAuth } from "src/context/authContext";
 import * as yup from "yup";
 
-import Form from "@components/Form";
-import Button from "@components/buttons/Button";
+import { Form } from "@components/Form";
+import { Button } from "@components/buttons";
 import { Input, PasswordInput } from "@components/input";
 import { PageBox } from "@components/layout";
 
@@ -32,9 +31,7 @@ const SignUp: NextPage = () => {
 
   const formSubmit = handleSubmit((data) => {
     console.log(data);
-    signup(data.email, data.password);
   });
-  const { signup } = useAuth();
   return (
     <PageBox maxWidth="xs">
       <AuthHeader gutterBottom variant="h1" align="center">

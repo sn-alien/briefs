@@ -69,7 +69,7 @@ const Slider: React.FC<Props> = ({
 };
 
 const SliderStyled = styled(MuiSlider)`
-  max-width: 80%;
+  max-width: 95%;
   margin: 0 auto;
   .MuiSlider-mark {
     visibility: hidden !important;

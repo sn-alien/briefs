@@ -26,4 +26,4 @@ const FormStyled = styled("form")`
   min-width: 300px;
   max-width: 100%;
 `;
-export default Form;
+export { Form };

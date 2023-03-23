@@ -45,7 +45,9 @@ const Checkbox = ({
                 inputRef={field.ref}
                 checked={!!field.value}
                 disabled={readOnly}
-                onChange={(e) => field.onChange(e.target.checked)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  field.onChange(e.target.checked)
+                }
               />
             }
             label={labelName}

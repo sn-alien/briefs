@@ -10,8 +10,8 @@ import { InputContainer, InputErrorMessage, Label } from "./Style";
 interface Props {
   name: string;
   labelName: string;
-  // options: { label: string; value: string }[];
-  options: string[];
+  options: { label: string; value: string }[];
+  // options: string[];
   placeholder?: string;
   defaultValue?: string | undefined;
   width?: "s" | "m" | "l";
@@ -60,8 +60,8 @@ const Select = ({
           >
             {options.length > 0 &&
               options.map((option) => (
-                <MenuItem key={option} value={option}>
-                  {option}
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
                 </MenuItem>
               ))}
             {/* {options.length > 0 &&

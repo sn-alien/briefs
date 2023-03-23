@@ -6,7 +6,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import Head from "next/head";
 import PropTypes from "prop-types";
-import { AuthContextProvider } from "src/context/authContext";
 
 import GlobalStyles from "@styles/GlobalStyle";
 import createEmotionCache from "@styles/createEmotionCache";
@@ -30,14 +29,12 @@ export default function MyApp(props) {
       <GlobalStyles />
       <ThemeProvider theme={muiTheme}>
         <EmotionThemeProvider theme={muiTheme}>
-          <AuthContextProvider>
-            <CssBaseline />
-            <Navbar />
-            <Wrapper>
-              <Component {...pageProps} />
-            </Wrapper>
-            <Footer />
-          </AuthContextProvider>
+          <CssBaseline />
+          <Navbar />
+          <Wrapper>
+            <Component {...pageProps} />
+          </Wrapper>
+          <Footer />
         </EmotionThemeProvider>
       </ThemeProvider>
     </CacheProvider>

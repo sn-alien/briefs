@@ -15,12 +15,9 @@ import Container from "@mui/material/Container";
 import { styled } from "@mui/material/styles";
 import Image from "next/image";
 import Link from "next/link";
-import { useAuth } from "src/context/authContext";
-
-import useRouteLoader from "@hooks/useRouteLoader";
 
 import Tooltip from "@components/Tooltip";
-import Button from "@components/buttons/Button";
+import { Button } from "@components/buttons";
 
 const Navbar = (): JSX.Element => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -31,33 +28,28 @@ const Navbar = (): JSX.Element => {
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const { loading } = useRouteLoader();
-  const { currentUser, logout } = useAuth();
   return (
     <>
       <NavbarBg>
         <InnerContainer maxWidth="lg">
           <InnerNavbar>
-            <Link href={"/home"} passHref>
+            <Link href={"/home"}>
               <Logo>
-                <Image src="/briefs.svg" height="44" width="90" />
+                <Image alt="" src="/briefs.svg" height="44" width="90" />
               </Logo>
             </Link>
 
             <LinksContainer>
-              <Link href={"/home"} passHref>
-                <StyledLinkText as="a" variant="body1">
-                  Home
-                </StyledLinkText>
-              </Link>
-              <Link href={"/test-form"} passHref>
-                <StyledLinkText as="a" variant="body1">
-                  Form
-                </StyledLinkText>
-              </Link>
+              <StyledLinkText href={"/home"}>Home</StyledLinkText>
+              <StyledLinkText href={"/test-form"}>Form</StyledLinkText>
+              <StyledLinkText href={"/test-form/simple"}>
+                Simple Form
+              </StyledLinkText>
+              <StyledLinkText href={"/test-form/build"}>
+                Form Builder
+              </StyledLinkText>
             </LinksContainer>
-
-            {currentUser.isLoggedIn ? (
+            {true ? (
               <UserContainer>
                 <Tooltip title="Account">
                   <IconButton onClick={handleOpenNavMenu}>
@@ -84,21 +76,13 @@ const Navbar = (): JSX.Element => {
                       <ListItemIcon>
                         <SettingsIcon fontSize="small" />
                       </ListItemIcon>
-                      <Typography
-                        component="a"
-                        variant="body2"
-                        textAlign="center"
-                      >
+                      <Typography variant="body2" textAlign="center">
                         Settings
                       </Typography>
                     </MenuItemStyled>
                   </Link>
                   <MenuItemStyled onClick={handleCloseNavMenu}>
-                    <ListItemIcon
-                      onClick={() => {
-                        logout(() => null);
-                      }}
-                    >
+                    <ListItemIcon>
                       <LogoutRoundedIcon fontSize="small" />
                     </ListItemIcon>
 
@@ -110,13 +94,13 @@ const Navbar = (): JSX.Element => {
               </UserContainer>
             ) : (
               <AuthContainer>
-                <Link href="/auth/login" passHref>
-                  <Button href="/auth/login" size="small" variant="text">
+                <Link href="/auth/login">
+                  <Button size="small" variant="text">
                     Log in
                   </Button>
                 </Link>
-                <Link href="/auth/sign-up" passHref>
-                  <Button href="/auth/sign-up" size="small" variant="contained">
+                <Link href="/auth/sign-up">
+                  <Button size="small" variant="contained">
                     Sign up
                   </Button>
                 </Link>
@@ -125,9 +109,7 @@ const Navbar = (): JSX.Element => {
           </InnerNavbar>
         </InnerContainer>
       </NavbarBg>
-      <LoaderWrap>
-        {loading && <LinearProgress variant="indeterminate" />}
-      </LoaderWrap>
+      <LoaderWrap></LoaderWrap>
     </>
   );
 };
@@ -149,7 +131,7 @@ const InnerNavbar = styled("div")`
   width: 100%;
 `;
 
-const Logo = styled("a")`
+const Logo = styled("div")`
   height: 100%;
   display: flex;
   align-items: center;
@@ -162,7 +144,7 @@ const LinksContainer = styled("div")`
   justify-content: center;
 `;
 
-const StyledLinkText = styled(Typography)`
+const StyledLinkText = styled(Link)`
   color: ${({ theme }) => theme.palette.text.primary};
   text-decoration: none;
   padding: 8px;

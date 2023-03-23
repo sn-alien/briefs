@@ -3,7 +3,7 @@ import Checkbox from "./Checkbox";
 import DateInput from "./DateInput";
 import FileInput from "./FileInput";
 import Input from "./Input";
-import MuiPhoneInput from "./MuiPhoneInput";
+// import MuiPhoneInput from "./MuiPhoneInput";
 import PasswordInput from "./PasswordInput";
 import Radio from "./Radio";
 import Select from "./Select";
@@ -15,7 +15,7 @@ export {
   DateInput,
   FileInput,
   Input,
-  MuiPhoneInput,
+  // MuiPhoneInput,
   PasswordInput,
   Radio,
   Select,

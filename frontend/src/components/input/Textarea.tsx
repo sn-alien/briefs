@@ -1,6 +1,7 @@
 import React from "react";
 
-import { OutlinedInput, OutlinedInputProps, Typography } from "@mui/material";
+import { OutlinedInput, Typography } from "@mui/material";
+import { OutlinedInputProps } from "@mui/material/OutlinedInput";
 import _ from "lodash";
 import { useTranslation } from "next-i18next";
 import { Controller, useFormContext } from "react-hook-form";

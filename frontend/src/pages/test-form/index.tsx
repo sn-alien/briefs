@@ -1,16 +1,16 @@
-import React from "react";
-
 import { useForm } from "react-hook-form";
-import * as yup from "yup";
 
-import Form from "@components/Form";
-import Button from "@components/buttons/Button";
+import { Form } from "@components/Form";
+import { Button } from "@components/buttons";
 import {
   Autocomplete,
-  FileDropzone,
+  Checkbox,
+  FileInput,
+  Input,
+  Radio,
   Select,
-  TextField,
-} from "@components/inputs/";
+  Slider,
+} from "@components/input";
 
 type Inputs = {
   fullName: string;
@@ -36,22 +36,44 @@ export default function TestForm() {
   return (
     <>
       <Form methods={methods} id="test-form" onSubmit={formSubmit}>
-        <TextField name="fullName" labelName="Full Name" />
+        <Input name="fullName" labelName="Full Name" />
+        <Checkbox
+          name="tos"
+          labelName="i agree to the terms and conditions"
+        ></Checkbox>
+        <Radio
+          labelName="Country"
+          name="countryR"
+          options={optionsRadio}
+        ></Radio>
         <Select name="country" labelName="Country" options={options1} />
         <Autocomplete
           name="favouriteMovie"
           labelName="Favourite Movie"
           options={top100Films}
         />
-        <FileDropzone name="nudes" labelName="Nudes" />
+        <Slider
+          name="satisfaction"
+          labelName="Satisfaction"
+          options={optionsSlider}
+        ></Slider>
+        <FileInput name="nudes" labelName="Nudes" />
         <Button form="test-form">Submit</Button>
       </Form>
     </>
   );
 }
 const options1 = [
-  { value: "USA", label: "United States of Americanes" },
-  { value: "MEX", label: "Mexico" },
+  { label: "United States of America", value: "USA" },
+  { label: "Mexico", value: "MEX" },
+];
+const optionsRadio = [
+  { label: "United States of America", value: "USA" },
+  { label: "Mexico", value: "MEX" },
+];
+const optionsSlider = [
+  { label: "bad", value: 1 },
+  { label: "great", value: 2 },
 ];
 
 const top100Films = [

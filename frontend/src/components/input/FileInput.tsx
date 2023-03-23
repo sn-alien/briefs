@@ -8,10 +8,6 @@ import { useTranslation } from "next-i18next";
 import { useDropzone } from "react-dropzone";
 import { Controller, useFormContext } from "react-hook-form";
 
-import formatBytes from "@helpers/formatBytes";
-
-import { ImagePreview } from "@components/ImagePreview";
-
 import { InputContainer, InputErrorMessage, Label, Optional } from "./Style";
 
 interface Props extends InputProps {
@@ -130,12 +126,12 @@ const Dropzone = ({
           <a href="#">{t("Form.Inputs.dropzoneBrowse")}</a>
         </Typography>
       </Base>
-      <Aside>
+      {/* <Aside>
         {files?.length > 0 &&
           files.map((file: any, idx: number) => (
             <ImagePreview key={idx} file={file} removeCb={removeFile} />
           ))}
-      </Aside>
+      </Aside> */}
     </section>
   );
 };

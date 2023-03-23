@@ -11,7 +11,7 @@ const Footer = (): JSX.Element => {
     <FooterWrap>
       <Wrapper>
         <InnerFooter>
-          <Image src="/briefs-pale.svg" height="44" width="90" />
+          <Image alt="" src="/briefs-pale.svg" height="44" width="90" />
         </InnerFooter>
       </Wrapper>
     </FooterWrap>
