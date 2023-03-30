@@ -5,15 +5,7 @@ import _ from "lodash";
 import { Controller, useFormContext } from "react-hook-form";
 
 import { InputContainer, InputErrorMessage, Label, Optional } from "./Style";
-
-interface Props extends InputProps {
-  placeholder?: string;
-  type?: string;
-  optional?: boolean;
-  autoFocus?: boolean;
-  defaultValue?: string | undefined;
-  width?: "s" | "m" | "l";
-}
+import { InputProps } from "./types";
 
 const Input = ({
   name,
@@ -23,7 +15,7 @@ const Input = ({
   defaultValue,
   width = "l",
   ...other
-}: Props): JSX.Element => {
+}: InputProps): JSX.Element => {
   const {
     control,
     formState: { errors },
@@ -57,7 +49,7 @@ const Input = ({
 
       <InputErrorMessage>
         <Typography variant="caption">
-          {_.get(errors, `${name}.message`)}
+          {!!_.get(errors, `${name}.message`)}
         </Typography>
       </InputErrorMessage>
     </InputContainer>

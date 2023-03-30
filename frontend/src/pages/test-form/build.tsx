@@ -16,31 +16,40 @@ type Inputs = {
 };
 
 export default function TestForm() {
-  const methods = useForm<Inputs>({
-    defaultValues: {
-      fullName: "Nazar Klymenko",
-      country: "USA",
-      steeringWheel: "",
-      tos: false,
-    },
-    resolver: yupResolver(validationSchema),
+  const Test = useFormBuilder({
+    elements: [
+      {
+        type: "Input",
+        name: "fullName",
+        labelName: "name",
+        autoComplete: false,
+        optional: false,
+        defaultValue: "abc",
+      },
+      {
+        type: "Checkbox",
+        name: "tos",
+        labelName: "terms of service",
+        autoComplete: false,
+        optional: false,
+        defaultValue: "abc",
+      },
+      {
+        type: "Radio",
+        name: "steeringWheel",
+        labelName: "Steering wheel",
+        autoComplete: false,
+        optional: false,
+        defaultValue: "abc",
+        options: [
+          { label: "Left", value: "left" },
+          { label: "Right", value: "right" },
+        ],
+      },
+    ],
+    validationSchema: {},
   });
-
-  const { handleSubmit, watch } = methods;
-
-  const formSubmit = handleSubmit((data) => {
-    console.log(data);
-  });
-  const Test = useFormBuilder();
-
-  return (
-    <>
-      <Form methods={methods} id="test-form" onSubmit={formSubmit}>
-        <Test name="abc" labelName="test"></Test>
-        <Button form="test-form">Submit</Button>
-      </Form>
-    </>
-  );
+  return <>{Test}</>;
 }
 const optionsCountry = [
   { label: "United States of America", value: "USA" },
@@ -50,9 +59,8 @@ const optionsSteering = [
   { label: "Left", value: "left" },
   { label: "Right", value: "right" },
 ];
-const validationSchema: yup.Schema<Inputs> = yup.object().shape({
+const validationSchema: yup.Schema = yup.object().shape({
   fullName: yup.string().required(),
-  country: yup.string().required(),
-  tos: yup.bool().oneOf([true], "required").required(),
   steeringWheel: yup.string().required(),
+  tos: yup.bool().oneOf([true], "required").required(),
 });

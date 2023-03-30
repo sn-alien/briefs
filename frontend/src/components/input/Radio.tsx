@@ -12,20 +12,14 @@ import { useTranslation } from "next-i18next";
 import { Controller, useFormContext } from "react-hook-form";
 
 import { InputErrorMessage, Label } from "./Style";
-
-interface Props {
-  name: string;
-  defaultValue?: string | undefined;
-  labelName: string;
-  options: { label: string; value: string }[];
-}
+import { RadioProps } from "./types";
 
 const Radio = ({
   name,
   defaultValue,
   options,
   labelName,
-}: Props): JSX.Element => {
+}: RadioProps): JSX.Element | null => {
   const { t } = useTranslation();
 
   const {
@@ -33,6 +27,7 @@ const Radio = ({
     formState: { errors },
   } = useFormContext();
 
+  if (!options) return null;
   return (
     <FormControl component="fieldset">
       <Label htmlFor={name}>{labelName}</Label>
@@ -48,16 +43,15 @@ const Radio = ({
             value={field.value}
             id={name}
           >
-            {options.length > 0 &&
-              options.map((option) => (
-                <FormControlLabel
-                  key={option.value}
-                  value={option.value}
-                  control={<MuiRadio color="primary" />}
-                  label={option.label}
-                  id={option.value}
-                />
-              ))}
+            {options.map((option) => (
+              <FormControlLabel
+                key={option.value}
+                value={option.value}
+                control={<MuiRadio color="primary" />}
+                label={option.label}
+                id={option.value}
+              />
+            ))}
           </RadioGroup>
         )}
       />

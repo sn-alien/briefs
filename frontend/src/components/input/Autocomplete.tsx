@@ -9,19 +9,7 @@ import _ from "lodash";
 import { Controller, useFormContext } from "react-hook-form";
 
 import { InputContainer, InputErrorMessage, Label, Optional } from "./Style";
-
-interface Props {
-  labelName: string;
-  name: string;
-  placeholder?: string;
-  type?: string;
-  optional?: boolean;
-  autoFocus?: boolean;
-  autoComplete?: string;
-  defaultValue?: string | undefined;
-  width?: "s" | "m" | "l";
-  options: { label: string }[];
-}
+import { AutocompleteProps } from "./types";
 
 const Autocomplete = ({
   name,
@@ -30,12 +18,13 @@ const Autocomplete = ({
   defaultValue,
   options,
   width = "l",
-}: Props): JSX.Element => {
+}: AutocompleteProps): JSX.Element | null => {
   const {
     control,
     formState: { errors },
   } = useFormContext();
 
+  if (!options) return null;
   return (
     <InputContainer width={width}>
       <Label htmlFor={name}>
@@ -71,7 +60,7 @@ const Autocomplete = ({
 
       <InputErrorMessage>
         <Typography variant="caption">
-          {_.get(errors, `${name}.message`)}
+          {!!_.get(errors, `${name}.message`)}
         </Typography>
       </InputErrorMessage>
     </InputContainer>

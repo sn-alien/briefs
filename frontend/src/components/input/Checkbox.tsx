@@ -9,15 +9,7 @@ import _ from "lodash";
 import { Controller, useFormContext } from "react-hook-form";
 
 import { InputContainer, InputErrorMessage } from "./Style";
-
-interface Props {
-  name: string;
-  labelName: string;
-  defaultValue?: boolean | undefined;
-  errorSpacer?: boolean;
-  readOnly?: boolean;
-  defaultChecked?: boolean;
-}
+import { CheckboxProps } from "./types";
 
 const Checkbox = ({
   name,
@@ -25,7 +17,7 @@ const Checkbox = ({
   defaultValue,
   errorSpacer,
   readOnly,
-}: Props): JSX.Element => {
+}: CheckboxProps): JSX.Element => {
   const {
     control,
     formState: { errors },
@@ -58,7 +50,7 @@ const Checkbox = ({
       {errorSpacer && (
         <InputErrorMessage>
           <Typography variant="caption">
-            {_.get(errors, `${name}.message`)}
+            {!!_.get(errors, `${name}.message`)}
           </Typography>
         </InputErrorMessage>
       )}

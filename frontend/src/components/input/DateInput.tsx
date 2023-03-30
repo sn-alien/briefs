@@ -66,9 +66,6 @@ const DateInput = ({
               return (
                 <TextField
                   {...params}
-                  // inputProps={{
-                  //   placeholder: placeholder,
-                  // }}
                   autoComplete={autoComplete}
                   placeholder={placeholder}
                   error={!!_.get(errors, name)}
@@ -81,7 +78,7 @@ const DateInput = ({
       />
       <InputErrorMessage>
         <Typography variant="caption">
-          {t(_.get(errors, `${name}.message`))}
+          {t(!!_.get(errors, `${name}.message`))}
         </Typography>
       </InputErrorMessage>
     </InputContainer>
