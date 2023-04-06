@@ -13,14 +13,7 @@ import { useTranslation } from "next-i18next";
 import { Controller, useFormContext } from "react-hook-form";
 
 import { InputContainer, InputErrorMessage, Label } from "./Style";
-
-interface Props {
-  name: string;
-  errorList?: {};
-  labelName: string;
-  autoComplete?: string;
-  defaultValue?: string | undefined;
-}
+import { PasswordInputProps } from "./types";
 
 const PasswordInput = ({
   name,
@@ -29,7 +22,7 @@ const PasswordInput = ({
   labelName,
   autoComplete,
   ...other
-}: Props): JSX.Element => {
+}: PasswordInputProps): JSX.Element => {
   const { t } = useTranslation();
   const {
     control,
@@ -80,7 +73,8 @@ const PasswordInput = ({
 
       <InputErrorMessage>
         <Typography variant="caption">
-          {t(_.get(errors, `${name}.message`))}
+          {/* {t(!!_.get(errors, `${name}.message`))} */}
+          {!!_.get(errors, `${name}.message`)}
         </Typography>
       </InputErrorMessage>
       {/* <Requirements>

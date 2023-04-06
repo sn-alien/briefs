@@ -6,11 +6,23 @@ import * as yup from "yup";
 
 import { Form } from "@components/Form";
 import { Button } from "@components/buttons";
-import { Checkbox, Input, Radio, Select } from "@components/input";
-import { CheckboxProps, InputProps, RadioProps } from "@components/input/types";
+import {
+  Autocomplete,
+  Checkbox,
+  Input,
+  Radio,
+  Select,
+} from "@components/input";
+import {
+  AutocompleteProps,
+  CheckboxProps,
+  InputProps,
+  RadioProps,
+  SelectProps,
+} from "@components/input/types";
 
 type uiSchemaTypes = {
-  type: "Checkbox" | "Input" | "Radio" | "Select";
+  type: "Checkbox" | "Input" | "Radio" | "Select" | "Autocomplete";
   name: string;
   labelName: string;
   autoComplete: boolean;
@@ -19,7 +31,6 @@ type uiSchemaTypes = {
   options?: { label: string; value: string }[] | string[];
 };
 type validationSchema = any;
-// type validationSchema = yup.ObjectSchema<any>;
 
 type Props = {
   elements: uiSchemaTypes[];
@@ -40,7 +51,7 @@ function useFormBuilder({ elements, validationSchema }: Props): JSX.Element {
 
   const methods = useForm({
     defaultValues: defaultValues,
-    resolver: yupResolver(validationSchema),
+    // resolver: yupResolver(validationSchema),
   });
 
   const { handleSubmit, watch } = methods;
@@ -64,6 +75,14 @@ function useFormBuilder({ elements, validationSchema }: Props): JSX.Element {
       }
       case "Radio": {
         return <Radio key={key} {...(element as any as RadioProps)} />;
+      }
+      case "Select": {
+        return <Select key={key} {...(element as any as SelectProps)} />;
+      }
+      case "Autocomplete": {
+        return (
+          <Autocomplete key={key} {...(element as any as AutocompleteProps)} />
+        );
       }
       default: {
         return null;

@@ -6,16 +6,7 @@ import { useTranslation } from "next-i18next";
 import { Controller, useFormContext } from "react-hook-form";
 
 import { InputContainer, InputErrorMessage, Label } from "./Style";
-
-interface Props {
-  name: string;
-  labelName: string;
-  options: { label: string; value: string }[];
-  // options: string[];
-  placeholder?: string;
-  defaultValue?: string | undefined;
-  width?: "s" | "m" | "l";
-}
+import { SelectProps } from "./types";
 
 const Select = ({
   name,
@@ -24,7 +15,7 @@ const Select = ({
   placeholder,
   defaultValue,
   width = "l",
-}: Props): JSX.Element => {
+}: SelectProps): JSX.Element => {
   const { t } = useTranslation();
   const {
     control,
@@ -64,18 +55,13 @@ const Select = ({
                   {option.label}
                 </MenuItem>
               ))}
-            {/* {options.length > 0 &&
-              options.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {t(option.label)}
-                </MenuItem>
-              ))} */}
           </MuiSelect>
         )}
       />
       <InputErrorMessage>
         <Typography variant="caption">
-          {t(_.get(errors, `${name}.message`))}
+          {/* {t(_.get(errors, `${name}.message`))} */}
+          {!!_.get(errors, `${name}.message`)}
         </Typography>
       </InputErrorMessage>
     </InputContainer>

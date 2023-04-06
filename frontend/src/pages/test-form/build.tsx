@@ -46,6 +46,30 @@ export default function TestForm() {
           { label: "Right", value: "right" },
         ],
       },
+      {
+        type: "Select",
+        name: "nationality",
+        labelName: "Nationality",
+        autoComplete: false,
+        optional: false,
+        defaultValue: "abc",
+        options: [
+          { label: "Left", value: "left" },
+          { label: "Right", value: "right" },
+        ],
+      },
+      {
+        type: "Autocomplete",
+        name: "movie",
+        labelName: "Favourite Movie",
+        autoComplete: false,
+        optional: false,
+        defaultValue: "abc",
+        options: [
+          { label: "Left", value: "left" },
+          { label: "Right", value: "right" },
+        ],
+      },
     ],
     validationSchema: {},
   });

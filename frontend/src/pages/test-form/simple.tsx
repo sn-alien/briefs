@@ -4,7 +4,13 @@ import * as yup from "yup";
 
 import { Form } from "@components/Form";
 import { Button } from "@components/buttons";
-import { Checkbox, Input, Radio, Select } from "@components/input";
+import {
+  Checkbox,
+  Input,
+  PasswordInput,
+  Radio,
+  Select,
+} from "@components/input";
 
 type Inputs = {
   fullName: string;
@@ -18,7 +24,7 @@ export default function TestForm() {
     defaultValues: {
       fullName: "Nazar Klymenko",
       country: "USA",
-      steeringWheel: "",
+      steeringWheel: "left",
       tos: false,
     },
     resolver: yupResolver(validationSchema),
@@ -45,6 +51,7 @@ export default function TestForm() {
           labelName="i agree to the terms and conditions"
           errorSpacer
         />
+        <PasswordInput name="password" labelName="password" />
         <Button form="test-form">Submit</Button>
       </Form>
     </>
@@ -58,9 +65,9 @@ const optionsSteering = [
   { label: "Left", value: "left" },
   { label: "Right", value: "right" },
 ];
-const validationSchema: yup.Schema<Inputs> = yup.object().shape({
+const validationSchema: yup.ObjectSchema<Inputs> = yup.object().shape({
   fullName: yup.string().required(),
   country: yup.string().required(),
-  tos: yup.bool().oneOf([true], "required").required(),
   steeringWheel: yup.string().required(),
+  tos: yup.bool().oneOf([true], "required").required(),
 });

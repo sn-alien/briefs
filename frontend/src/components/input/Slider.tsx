@@ -61,7 +61,8 @@ const Slider: React.FC<Props> = ({
 
       <InputErrorMessage>
         <Typography variant="caption">
-          {t(_.get(errors, `${name}.message`))}
+          {/* {t(_.get(errors, `${name}.message`))} */}
+          {!!_.get(errors, `${name}.message`)}
         </Typography>
       </InputErrorMessage>
     </InputContainer>

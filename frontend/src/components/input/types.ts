@@ -1,3 +1,5 @@
+import { OutlinedInputProps } from "@mui/material/OutlinedInput";
+
 interface DefaultInputProps {
   name: string;
   labelName: string;
@@ -30,4 +32,24 @@ export interface CheckboxProps extends DefaultInputProps {
   errorSpacer?: boolean;
   readOnly?: boolean;
   defaultChecked?: boolean;
+}
+export interface PasswordInputProps extends DefaultInputProps {
+  autoComplete?: string;
+  errorList?: {};
+  defaultValue?: string | undefined;
+}
+
+export interface TextAreaProps extends DefaultInputProps, OutlinedInputProps {
+  name: string;
+  placeholder?: string;
+  optional?: boolean;
+  rows?: number;
+  defaultValue?: string | undefined;
+}
+
+export interface SelectProps extends DefaultInputProps {
+  options: { label: string; value: string }[];
+  placeholder?: string;
+  defaultValue?: string | undefined;
+  width?: "s" | "m" | "l";
 }
