@@ -77,11 +77,11 @@ const optionsSlider = [
 ];
 
 const top100Films = [
-  { label: "The Shawshank Redemption", id: 1 },
-  { label: "The Godfather", id: 2 },
-  { label: "The Godfather: Part II", id: 3 },
-  { label: "The Dark Knight", id: 4 },
-  { label: "12 Angry Men", id: 5 },
-  { label: "Schindler's List", id: 6 },
-  { label: "Pulp Fiction", id: 7 },
+  "The Shawshank Redemption",
+  "The Godfather",
+  "The Godfather: Part II",
+  "The Dark Knight",
+  "12 Angry Men",
+  "Schindler's List",
+  "Pulp Fiction",
 ];

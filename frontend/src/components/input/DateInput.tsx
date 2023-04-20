@@ -8,18 +8,7 @@ import { useTranslation } from "next-i18next";
 import { Controller, useFormContext } from "react-hook-form";
 
 import { InputContainer, InputErrorMessage, Label } from "./Style";
-
-interface Props extends InputProps {
-  defaultValue?: any;
-  placeholder: string;
-  view?: ["day"] | ["year", "month"] | ["year", "month", "day"] | ["year"];
-  format?: "dd/MM/yyyy" | "yyyy";
-  disablePast?: boolean;
-  disableFuture?: boolean;
-  maxDate?: Date;
-  minDate?: Date;
-  openTo?: "year";
-}
+import { DateInputProps } from "./types";
 
 const DateInput = ({
   labelName,
@@ -30,7 +19,7 @@ const DateInput = ({
   format = "dd/MM/yyyy",
   autoComplete,
   ...other
-}: Props): JSX.Element => {
+}: DateInputProps): JSX.Element => {
   const { t } = useTranslation();
   const {
     control,

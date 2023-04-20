@@ -11,7 +11,9 @@
     "lerna": "^4.0.0"
   },
   "scripts": {
-    "frontend": "yarn workspace @briefs/frontend dev",
-    "backend": "yarn workspace @briefs/backend dev"
+    "frontend": "yarn workspace @briefs/frontend",
+    "backend": "yarn workspace @briefs/backend",
+    "frontend:s": "yarn workspace @briefs/frontend dev",
+    "backend:s": "yarn workspace @briefs/backend dev"
   }
 }

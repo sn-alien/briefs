@@ -4,17 +4,6 @@ import * as yup from "yup";
 
 import { useFormBuilder } from "@hooks/useFormBuilder";
 
-import { Form } from "@components/Form";
-import { Button } from "@components/buttons";
-import { Checkbox, Input, Radio, Select } from "@components/input";
-
-type Inputs = {
-  fullName: string;
-  country: string;
-  steeringWheel: string;
-  tos: boolean;
-};
-
 export default function TestForm() {
   const Test = useFormBuilder({
     elements: [
@@ -75,14 +64,7 @@ export default function TestForm() {
   });
   return <>{Test}</>;
 }
-const optionsCountry = [
-  { label: "United States of America", value: "USA" },
-  { label: "Mexico", value: "MEX" },
-];
-const optionsSteering = [
-  { label: "Left", value: "left" },
-  { label: "Right", value: "right" },
-];
+
 const validationSchema: yup.Schema = yup.object().shape({
   fullName: yup.string().required(),
   steeringWheel: yup.string().required(),

@@ -35,7 +35,7 @@ export interface CheckboxProps extends DefaultInputProps {
 }
 export interface PasswordInputProps extends DefaultInputProps {
   autoComplete?: string;
-  errorList?: {};
+  errorList?: object;
   defaultValue?: string | undefined;
 }
 
@@ -52,4 +52,22 @@ export interface SelectProps extends DefaultInputProps {
   placeholder?: string;
   defaultValue?: string | undefined;
   width?: "s" | "m" | "l";
+}
+export interface FileInputProps extends DefaultInputProps {
+  placeholder?: string;
+  optional?: boolean;
+  autoComplete?: string;
+  defaultValue?: File | null | undefined;
+  width?: "s" | "m" | "l";
+}
+export interface DateInputProps extends DefaultInputProps {
+  defaultValue?: any;
+  placeholder: string;
+  view?: ["day"] | ["year", "month"] | ["year", "month", "day"] | ["year"];
+  format?: "dd/MM/yyyy" | "yyyy";
+  disablePast?: boolean;
+  disableFuture?: boolean;
+  maxDate?: Date;
+  minDate?: Date;
+  openTo?: "year";
 }

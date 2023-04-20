@@ -9,14 +9,7 @@ import { useDropzone } from "react-dropzone";
 import { Controller, useFormContext } from "react-hook-form";
 
 import { InputContainer, InputErrorMessage, Label, Optional } from "./Style";
-
-interface Props extends InputProps {
-  placeholder?: string;
-  optional?: boolean;
-  autoComplete?: string;
-  defaultValue?: File | null | undefined;
-  width?: "s" | "m" | "l";
-}
+import { FileInputProps } from "./types";
 
 const FileInput = ({
   name,
@@ -26,7 +19,7 @@ const FileInput = ({
   defaultValue,
   width = "l",
   ...other
-}: Props): JSX.Element => {
+}: FileInputProps): JSX.Element => {
   const { t } = useTranslation();
   const {
     control,
@@ -57,7 +50,8 @@ const FileInput = ({
 
       <InputErrorMessage>
         <Typography variant="caption">
-          {t(_.get(errors, `${name}.message`))}
+          {/* {t(_.get(errors, `${name}.message`))} */}
+          {!!_.get(errors, `${name}.message`)}
         </Typography>
       </InputErrorMessage>
     </InputContainer>
@@ -77,8 +71,8 @@ const Dropzone = ({
   const [files, setFiles] = useState<any>(defaultValue || []);
 
   const onDrop = useCallback(
-    (acceptedFiles) => {
-      let newFiles = [
+    (acceptedFiles: any) => {
+      const newFiles = [
         ...files,
         ...acceptedFiles.map((file: any) =>
           Object.assign(file, {
@@ -103,12 +97,13 @@ const Dropzone = ({
 
   const { getRootProps, getInputProps, isDragActive, isFocused, isDragReject } =
     useDropzone({
-      onDrop,
+      onDrop, //@ts-ignore
       accept: "image/jpeg, image/png",
     });
 
   const removeFile = (file: File) => () => {
     const newFiles = [...files];
+
     newFiles.splice(newFiles.indexOf(file), 1);
     setFiles(newFiles);
     onChange(newFiles);

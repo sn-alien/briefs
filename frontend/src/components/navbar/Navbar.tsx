@@ -31,7 +31,7 @@ const Navbar = (): JSX.Element => {
   return (
     <>
       <NavbarBg>
-        <InnerContainer maxWidth="lg">
+        <InnerContainer maxWidth={false}>
           <InnerNavbar>
             <Link href={"/home"}>
               <Logo>

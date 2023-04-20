@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Wrapper = ({ children }: Props): JSX.Element => {
-  return <ContainerStyled maxWidth="lg">{children}</ContainerStyled>;
+  return <ContainerStyled maxWidth={false}>{children}</ContainerStyled>;
 };
 
 export default Wrapper;
