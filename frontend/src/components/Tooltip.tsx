@@ -15,4 +15,3 @@ const Tooltip = ({ children, title }: Props): JSX.Element => {
 export default Tooltip;
 
 const TooltipStyled = styled(MuiTooltip)``;
-1;

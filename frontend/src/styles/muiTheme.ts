@@ -7,7 +7,18 @@ declare module "@mui/material/styles/createTheme" {
   }
 }
 const themeName = "Light";
-
+const primaryColor = {
+  50: "#FEF6FA",
+  100: "#FDE8F3",
+  200: "#FAD1E6",
+  300: "#F8B5D7",
+  400: "#F490C3",
+  500: "#EF5DA8",
+  600: "#EC3C97",
+  700: "#DA167B",
+  800: "#BA1269",
+  900: "#870D4C",
+};
 const theme = createTheme({
   components: {
     MuiButtonBase: {
@@ -17,16 +28,7 @@ const theme = createTheme({
     },
   },
   palette: {
-    primary: {
-      main: "#EF5DA8",
-      light: "#F17BB8",
-      dark: "#ED4B9E",
-    },
-    secondary: {
-      main: "#46D5B3",
-      light: "#98E8D4",
-      dark: "#31D0AA",
-    },
+    primary: primaryColor,
   },
   typography: {
     h1: {
