@@ -4,7 +4,7 @@ const Input = () => {
       <label htmlFor="fullName">Full Name</label>
       <input
         id="fullName"
-        className="block w-full rounded-md border-2 border-slate-300  px-3 py-2 focus:border-pink-300 focus:outline-none focus:ring-sky-500"
+        className="block w-full rounded-md border-2 border-slate-300  px-3 py-2 focus:border-pink-400 focus:outline-none"
       ></input>
     </>
   );

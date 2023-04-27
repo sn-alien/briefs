@@ -1,6 +1,6 @@
 import "@styles/globals.css";
 import type { AppProps } from "next/app";
-import { PageContainer } from "@components/Containers/PageContainer";
+import { PageContainer } from "@components/containers/PageContainer";
 import { Navbar } from "@components/Navbar";
 
 export default function App({ Component, pageProps }: AppProps) {

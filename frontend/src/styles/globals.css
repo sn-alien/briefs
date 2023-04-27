@@ -31,3 +31,43 @@ body,
   position: relative;
   height: fit-content;
 }
+
+input[type="checkbox"]:focus-visible + label:before {
+  border-color: rgb(245 158 203 / var(--tw-border-opacity));
+}
+
+@layer components {
+  .checkbox-custom {
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+  .checkbox-custom + label {
+    cursor: pointer;
+  }
+  .checkbox-custom + label::before {
+    content: "";
+    display: inline-block;
+    border-width: theme("borderWidth.2");
+    height: 24px;
+    width: 24px;
+    margin-right: 0.5rem;
+    border-color: theme("colors.slate.300");
+    border-radius: theme("borderRadius.md");
+  }
+  .checkbox-custom:checked + label::before {
+    content: "\2713";
+    border-color: theme("colors.pink.400");
+    background-color: theme("colors.pink.400");
+    text-align: center;
+    font-size: smaller;
+    color: aliceblue;
+    font-weight: 800;
+  }
+  .checkbox-custom:focus + label::before {
+    border-color: theme("colors.pink.400") !important;
+  }
+  .checkbox-custom:checked:focus + label::before {
+    border-color: theme("colors.pink.600") !important;
+  }
+}
