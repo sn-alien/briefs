@@ -41,6 +41,7 @@ input[type="checkbox"]:focus-visible + label:before {
     opacity: 0;
     height: 0;
     width: 0;
+    appearance: none;
   }
   .checkbox-custom + label {
     cursor: pointer;
@@ -52,22 +53,27 @@ input[type="checkbox"]:focus-visible + label:before {
     height: 24px;
     width: 24px;
     margin-right: 0.5rem;
-    border-color: theme("colors.slate.300");
+    border-color: theme("colors.slate.300") !important;
     border-radius: theme("borderRadius.md");
+    background-color: theme("colors.slate.50");
+    outline: none;
   }
   .checkbox-custom:checked + label::before {
     content: "\2713";
-    border-color: theme("colors.pink.400");
+    border-color: theme("colors.pink.400") !important;
     background-color: theme("colors.pink.400");
     text-align: center;
     font-size: smaller;
-    color: aliceblue;
+    color: theme("colors.white");
     font-weight: 800;
+    outline: none;
   }
   .checkbox-custom:focus + label::before {
-    border-color: theme("colors.pink.400") !important;
+    border-color: theme("colors.pink.400");
+    outline: 2px solid theme("colors.pink.400");
+    outline-offset: 2px !important;
   }
   .checkbox-custom:checked:focus + label::before {
-    border-color: theme("colors.pink.600") !important;
+    border-color: theme("colors.pink.400");
   }
 }

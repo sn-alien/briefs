@@ -1,7 +1,7 @@
 const Checkbox = () => {
   return (
     <div className="flex h-12 items-center">
-      <input id="Tos" className="checkbox-custom" type="checkbox"></input>
+      <input id="Tos" className="checkbox-custom " type="checkbox"></input>
       <label className="flex items-center" htmlFor="Tos">
         Tos
       </label>

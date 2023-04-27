@@ -4,7 +4,8 @@ import { ContentWrap } from "@components/containers/ContentWrap";
 const FormComponentsPage = () => {
   return (
     <ContentWrap>
-      <Input></Input>
+      <Input labelName="Full name" name="fullName" />
+      <Input labelName="Occupation" name="occupation" optional />
       <Checkbox></Checkbox>
     </ContentWrap>
   );

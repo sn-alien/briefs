@@ -1,12 +1,21 @@
-const Input = () => {
+import { InputProps } from "./types";
+import { InputWrap, RequiredText, LabelWrap } from "./sharedComponents";
+const Input = ({ name, labelName, optional }: InputProps) => {
   return (
-    <>
-      <label htmlFor="fullName">Full Name</label>
+    <InputWrap>
+      <LabelWrap>
+        <label className="flex" htmlFor={name}>
+          {labelName}
+        </label>
+        {optional && <RequiredText />}
+      </LabelWrap>
+
       <input
-        id="fullName"
+        id={name}
+        name={name}
         className="block w-full rounded-md border-2 border-slate-300  px-3 py-2 focus:border-pink-400 focus:outline-none"
-      ></input>
-    </>
+      />
+    </InputWrap>
   );
 };
 
