@@ -1,7 +1,6 @@
 import { Input, Checkbox } from "@components/input";
 import { ContentWrap } from "@components/containers/ContentWrap";
 import { Button } from "@components/buttons/Button";
-
 const FormComponentsPage = () => {
   return (
     <ContentWrap>
