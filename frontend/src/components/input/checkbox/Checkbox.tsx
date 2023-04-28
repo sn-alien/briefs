@@ -1,11 +1,31 @@
-const Checkbox = () => {
+import {
+  CheckboxWrap,
+  RequiredText,
+  LabelWrap,
+  Label,
+} from "../sharedComponents";
+import { CheckboxProps } from "../types";
+
+const Checkbox = ({
+  checked,
+  disabled,
+  defaultValue,
+  name,
+  labelName,
+}: CheckboxProps) => {
   return (
-    <div className="flex h-12 items-center">
-      <input id="Tos" className="checkbox-custom " type="checkbox"></input>
-      <label className="flex items-center" htmlFor="Tos">
-        Tos
-      </label>
-    </div>
+    <CheckboxWrap>
+      <input
+        id={name}
+        className="checkbox-custom disabled"
+        disabled={disabled}
+        checked={checked || defaultValue}
+        type="checkbox"
+      />
+      <Label className="flex items-center" htmlFor={name}>
+        {labelName}
+      </Label>
+    </CheckboxWrap>
   );
 };
 

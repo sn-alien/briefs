@@ -76,4 +76,13 @@ input[type="checkbox"]:focus-visible + label:before {
   .checkbox-custom:checked:focus + label::before {
     border-color: theme("colors.pink.400");
   }
+  .checkbox-custom:disabled + label {
+    cursor: default;
+  }
+  .checkbox-custom:checked:disabled + label::before {
+    content: "\2713";
+    cursor: default;
+    background-color: theme("colors.slate.400");
+    border-color: theme("colors.slate.300") !important;
+  }
 }

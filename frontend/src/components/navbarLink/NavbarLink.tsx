@@ -10,9 +10,9 @@ const NavbarLink = ({
 }: PropsWithChildren<NavbarLinkProps>) => {
   const { asPath, isReady } = useRouter();
   const className =
-    "rounded-md p-2 mx-2 font-semibold transition-colors hover:bg-gray-100";
+    "rounded-md p-1 px-2 mx-2 sm:p-2 font-semibold transition-colors hover:bg-gray-100";
   const activeClassName =
-    "rounded-md p-2 mx-2 font-semibold transition-colors bg-gray-200";
+    "rounded-md p-1 px-2 mx-2 sm:p-2 font-semibold transition-colors bg-gray-200";
   const [computedClassName, setComputedClassName] = useState(className);
 
   useEffect(() => {
