@@ -14,3 +14,9 @@ export interface CheckboxProps extends DefaultInputProps {
   disabled?: boolean;
   defaultValue?: boolean;
 }
+export interface RadioProps extends DefaultInputProps {
+  checked?: boolean;
+  disabled?: boolean;
+  defaultValue?: boolean;
+  value: string;
+}
