@@ -17,7 +17,7 @@ const Checkbox = ({
     <ControlInputWrap>
       <input
         id={name}
-        className="peer h-0 w-0 appearance-none opacity-0 "
+        className="peer sr-only "
         disabled={disabled}
         checked={checked || defaultValue}
         type="checkbox"
@@ -33,8 +33,3 @@ const Checkbox = ({
 };
 
 export { Checkbox };
-
-// before:outline-none
-// peer-checked:before:border-pink-400
-
-// peer-focus:before:outline peer-focus:before:outline-2 peer-focus:before:outline-offset-2 peer-focus:before:outline-pink-400

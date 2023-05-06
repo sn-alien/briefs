@@ -19,7 +19,7 @@ export function Label(props: LabelProps) {
   return (
     <label
       {...props}
-      className={`mr-2 flex text-sm font-medium text-gray-900 ${props.className}`}
+      className={`mr-2 flex text-sm font-medium text-gray-900 peer-disabled:text-slate-400 ${props.className}`}
     >
       {props.children}
     </label>

@@ -1,4 +1,4 @@
-import { Input, Checkbox, Radio } from "@components/input";
+import { Input, Checkbox, Radio, Toggle } from "@components/input";
 import { ContentWrap } from "@components/containers/ContentWrap";
 import { Button } from "@components/buttons/Button";
 import { Fieldset } from "@components/Fieldset";
@@ -9,6 +9,12 @@ const FormComponentsPage = () => {
       <Input labelName="Full name" name="fullName" />
       <Input labelName="Occupation" name="occupation" optional />
       <Input labelName="Email" name="email" type="email" />
+      <Input
+        labelName="Email with placeholder"
+        placeholder="example@site.com"
+        name="email"
+        type="email"
+      />
       <p className="text-xl font-semibold">Checkboxes</p>
       <p className="text-md font-medium text-gray-900">Vertical</p>
       <Fieldset>
@@ -53,15 +59,36 @@ const FormComponentsPage = () => {
       <Fieldset>
         <Radio labelName="Group" name="group" value="a"></Radio>
         <Radio labelName="Group" name="group" value="b"></Radio>
-        <Radio labelName="Group" name="group" value="c"></Radio>
         <Radio labelName="Group" name="group" value="c" disabled></Radio>
       </Fieldset>
       <p className="text-md font-medium text-gray-900">Horizontal</p>
       <Fieldset orientation="horizontal">
         <Radio labelName="a" name="group-h" value="a"></Radio>
         <Radio labelName="b" name="group-h" value="b"></Radio>
-        <Radio labelName="cccccccccccc" name="group-h" value="c"></Radio>
-        <Radio labelName="dd" name="group-h" value="c" disabled></Radio>
+        <Radio
+          labelName="cccccccccccc"
+          name="group-h"
+          value="c"
+          disabled
+        ></Radio>
+      </Fieldset>
+      <p className="text-md font-medium text-gray-900">Disabled checked</p>
+      <Fieldset orientation="horizontal">
+        <Radio labelName="abc" name="group-dc" value="a" disabled></Radio>
+        <Radio
+          labelName="efg"
+          name="group-dc"
+          value="b"
+          disabled
+          checked
+        ></Radio>
+      </Fieldset>
+      <p className="text-xl font-semibold">Toggle</p>
+      <Fieldset orientation="vertical">
+        <Toggle labelName="a" name="group-a"></Toggle>
+        <Toggle labelName="b" name="group-b"></Toggle>
+        <Toggle labelName="c" name="group-c" disabled></Toggle>
+        <Toggle labelName="d" name="group-d" disabled checked></Toggle>
       </Fieldset>
       <p className="text-xl font-semibold">Buttons</p>
       <Button>Next</Button>
