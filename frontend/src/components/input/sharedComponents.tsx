@@ -29,3 +29,10 @@ export function Label(props: LabelProps) {
 export function ControlInputWrap({ children }: { children: React.ReactNode }) {
   return <div className="my-3 flex items-center">{children}</div>;
 }
+export function ErrorMessageWrap({ children }: { children: any }) {
+  return (
+    <div className="h-1">
+      <p className="text-xs">{children}</p>
+    </div>
+  );
+}

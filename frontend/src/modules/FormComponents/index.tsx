@@ -2,6 +2,7 @@ import { Input, Checkbox, Radio, Toggle } from "@components/input";
 import { ContentWrap } from "@components/containers/ContentWrap";
 import { Button } from "@components/buttons/Button";
 import { Fieldset } from "@components/Fieldset";
+import { Select } from "@components/input/Select";
 const FormComponentsPage = () => {
   return (
     <ContentWrap>
@@ -15,6 +16,7 @@ const FormComponentsPage = () => {
         name="email"
         type="email"
       />
+
       <p className="text-xl font-semibold">Checkboxes</p>
       <p className="text-md font-medium text-gray-900">Vertical</p>
       <Fieldset>
@@ -80,7 +82,7 @@ const FormComponentsPage = () => {
           name="group-dc"
           value="b"
           disabled
-          checked
+          defaultChecked
         ></Radio>
       </Fieldset>
       <p className="text-xl font-semibold">Toggle</p>

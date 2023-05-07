@@ -5,6 +5,7 @@ interface DefaultInputProps {
   labelName: string;
   optional?: boolean;
   autoComplete?: string;
+  validation?: { required: string; message?: string };
 }
 export interface InputProps extends DefaultInputProps {
   startIcon?: React.ReactElement;
@@ -18,7 +19,7 @@ export interface CheckboxProps extends DefaultInputProps {
   defaultValue?: boolean;
 }
 export interface RadioProps extends DefaultInputProps {
-  checked?: boolean;
+  defaultChecked?: boolean;
   disabled?: boolean;
   defaultValue?: boolean;
   value: string;
