@@ -1,4 +1,4 @@
-import { Input, Checkbox, Radio, Toggle, RadioGroup } from "@components/input";
+import { Input, Checkbox, Toggle, Radio } from "@components/input";
 import { ContentWrap } from "@components/containers/ContentWrap";
 import { Button } from "@components/buttons/Button";
 import { Fieldset } from "@components/Fieldset";
@@ -50,7 +50,11 @@ const FormDummy = () => {
           name="email"
           type="email"
         />
-        <RadioGroup radioSchema={radios} />
+        <Radio
+          name="paymentMethod"
+          labelName="Payment Method"
+          radioButtons={radioButtons}
+        />
 
         <Fieldset>
           <Checkbox name="tos" labelName="terms of service" />
@@ -66,20 +70,16 @@ const FormDummy = () => {
 };
 
 export { FormDummy };
-const radios = {
-  groupData: { mainLabel: "Payment Method", mainName: "paymentMethod" },
-  radioButtons: [
-    {
-      labelName: "Paypal",
-      value: "paypal",
-      defaultChecked: true,
-      name: "paymentMethod",
-    },
-    {
-      labelName: "MasterCard",
-      value: "MasterCard",
-      defaultChecked: false,
-      name: "paymentMethod",
-    },
-  ],
-};
+
+const radioButtons = [
+  {
+    labelName: "Paypal",
+    value: "paypal",
+    defaultChecked: true,
+  },
+  {
+    labelName: "MasterCard",
+    value: "MasterCard",
+    defaultChecked: false,
+  },
+];

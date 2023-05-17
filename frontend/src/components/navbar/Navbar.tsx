@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import UserCircleIcon from "@heroicons/react/24/solid/UserCircleIcon";
-import { NavbarLink } from "@components/NavbarLink";
+import { NavbarLink } from "./NavbarLink";
 const Navbar = () => {
   return (
     <header className="sticky top-0 flex h-14  w-full justify-center  border-b border-slate-300 px-4 backdrop-blur">
@@ -41,5 +41,9 @@ const links = [
   {
     href: "/form/form-dummy",
     text: "Form Dummy",
+  },
+  {
+    href: "/form/form-generated",
+    text: "Form Generator",
   },
 ];

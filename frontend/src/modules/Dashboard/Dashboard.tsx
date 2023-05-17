@@ -1,3 +1,4 @@
+import { CreateFormButton } from "@components/CreateFormButton";
 import { Search } from "@components/input/Search";
 
 const Dashboard = () => {
@@ -15,9 +16,7 @@ const Dashboard = () => {
       <hr></hr>
       <div className="flex justify-between">
         <Search></Search>
-        <button className="my-4 rounded-md bg-pink-400 px-4 font-semibold text-white">
-          + Create form
-        </button>
+        <CreateFormButton />
       </div>
 
       <hr></hr>

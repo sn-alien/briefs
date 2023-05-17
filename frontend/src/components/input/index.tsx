@@ -1,7 +1,6 @@
 import { Input } from "./Input";
 import { Checkbox } from "./checkbox/Checkbox";
-import { Radio } from "./radio/Radio";
 import { Toggle } from "./Toggle";
-import { RadioGroup } from "./radio/RadioGroup";
+import { Radio } from "./radio/Radio";
 
-export { Input, Checkbox, Radio, Toggle, RadioGroup };
+export { Input, Checkbox, Toggle, Radio };

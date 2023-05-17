@@ -22,7 +22,6 @@ const Input = ({
     register,
     formState: { errors },
   } = useFormContext();
-  console.log(errors);
   return (
     <InputWrap>
       <LabelWrap>
